@@ -1,16 +1,15 @@
 <?php
 if (isset($_POST['send'])) {
     // Collect form data
-    $name    = $_POST['name'];
+    $phone    = $_POST['phoneno'];
     $email   = $_POST['email'];
-    $subject = $_POST['subject'];
-    $message = $_POST['message'];
+ 
 
     // Receiver Email
-    $to = "your_email@example.com";  // 🔴 Replace with your email address
+    $to = "atulvarshney322@gmail.com";  // 🔴 Replace with your email address
 
     // Email Subject
-    $subject = "New Message from: $name - $subject";
+    $subject = "New Message from: $phone - $email";
 
     // Email Body
     $body = "
@@ -20,9 +19,9 @@ if (isset($_POST['send'])) {
     </head>
     <body>
       <h3>Contact Details</h3>
-      <p><strong>Name:</strong> {$name}</p>
+      <p><strong>Phone No:</strong> {$phone}</p>
       <p><strong>Email:</strong> {$email}</p>
-      <p><strong>Message:</strong><br>{$message}</p>
+      
     </body>
     </html>
     ";
@@ -30,7 +29,7 @@ if (isset($_POST['send'])) {
     // Email Headers
     $headers  = "MIME-Version: 1.0" . "\r\n";
     $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-    $headers .= "From: {$name} <{$email}>" . "\r\n";
+    $headers .= "From: {$phone} <{$email}>" . "\r\n";
 
     // Send Mail
     if (mail($to, $subject, $body, $headers)) {
